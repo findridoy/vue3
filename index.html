@@ -8,22 +8,28 @@
     <title>Learning Vue 3</title>
 
     <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: rgb(126, 184, 73);
+            margin-bottom: 10px;
+        }
+    
+        .redColor {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
 
     <div id="app">
-        <ul v-if="fruitsShowing">
-            <li>Apple</li>
-            <li>Banana</li>
-            <li>Orange</li>
+        <ul>
+            <li v-for="(book, index) in books" :key="index">
+                <div :class="{redColor: book.isFav}">{{ book.title }} <a :href="book.url">Buy</a></div>
+            </li>
         </ul>
-
-        <button @click="fruitsShowing = !fruitsShowing">
-            <span v-if="fruitsShowing === false">Show</span>
-            <span v-else>Hide</span>
-            Fruits
-        </button>
     </div>
 
 

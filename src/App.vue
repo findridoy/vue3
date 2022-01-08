@@ -1,6 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <input type="text" name="" id="" @keypress="handleKeyPress">
 </template>
 
 <script>

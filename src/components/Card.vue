@@ -21,6 +21,9 @@ export default {
         },
         ValidYear: {
             default: "YY"
+        },
+        color: {
+            default: "white"
         }
     },
 
@@ -35,7 +38,7 @@ export default {
 </script>
 
 <template>
-    <div class="card" :style="'background-color:' + BackgroundColor">
+    <div class="card" :style="'background-color:' + BackgroundColor +';color:' + color">
         <div class="header">
             <div style="padding: 1rem;">
                 <div>WIFI</div>
@@ -50,8 +53,8 @@ export default {
         </div>
         <div class="footer">
             <div>
-                <div>{{ FirstName }} {{ LastName }}</div>
-                <div>DAVID LUNDHOLM</div>
+                <div>CARDHOLDER NAME</div>
+                <div>{{ FirstName.toUpperCase() }} {{ LastName.toUpperCase() }}</div>
             </div>
             <div>
                 <div>VALID TILL</div>

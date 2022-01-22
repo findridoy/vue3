@@ -1,14 +1,36 @@
 <script>
 import Card from "./Card.vue"
 export default {
-    components: {Card}
+    components: { Card },
+
+    data: function () {
+        return {
+            colors: ['black', 'purple', 'darkred']
+        }
+    },
+
+    methods: {
+        getCards() {
+            const cards = JSON.parse(window.localStorage.getItem('cards'))
+            return cards
+        },
+    }
 }
 </script>
 <template>
     <div class="card-wrapper">
-        <Card background-color="yellow" class="card" style="top: 30px;"></Card>
-        <Card background-color="green" class="card" style="top: 60px;"></Card>
-        <Card background-color="purple" class="card" style="top: 90px;"></Card>
+        <Card
+            v-for="(card, index) in getCards()"
+            :key="index"
+            :background-color="colors[Math.floor(Math.random() * 3)]"
+            :card-number="card.number"
+            :first-name="card.holder_first_name"
+            :last-name="card.holder_last_name"
+            :Logo="card.logo"
+            :valid-month="card.valid_till_month"
+            :valid-year="card.valid_till_year"
+            @click.native="$emit('selected', card)"
+        ></Card>
     </div>
 </template>
 
@@ -18,6 +40,5 @@ export default {
 }
 
 .card {
-    position: absolute;
 }
 </style>

@@ -1,19 +1,34 @@
 <template>
   <div id="app">
     <div>
-      <CardDisplay></CardDisplay>
-      <button class="add-card-button">ADD A NEW CARD</button>
+      <CardDisplay v-if="visibleArea === 'card_display'" @change-view="handleChangeView"></CardDisplay>
+      
+
+      <CardForm v-else @change-view="visibleArea = 'card_display'"></CardForm>
     </div>
   </div>
 </template>
 
 <script>
 import CardDisplay from "./components/CardDisplay.vue"
+import CardForm from "./components/CardForm.vue"
 
 export default {
   name: 'App',
   components: {
-    CardDisplay
+    CardDisplay,
+    CardForm
+  },
+  data: function(){
+    return {
+      visibleArea: "card_display"
+    }
+  },
+
+  methods: {
+    handleChangeView(){
+      this.visibleArea = "form_display"
+    }
   }
 }
 </script>

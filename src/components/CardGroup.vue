@@ -5,22 +5,23 @@ export default {
 
     data: function () {
         return {
-            colors: ['black', 'purple', 'darkred']
+            colors: ['black', 'purple', 'darkred'],
+            cards: []
         }
     },
 
     methods: {
-        getCards() {
-            const cards = JSON.parse(window.localStorage.getItem('cards'))
-            return cards
-        },
+        // getCards() {
+        //     const cards = JSON.parse(window.localStorage.getItem('cards'))
+        //     return cards
+        // },
     }
 }
 </script>
 <template>
     <div class="card-wrapper">
         <Card
-            v-for="(card, index) in getCards()"
+            v-for="(card, index) in cards"
             :key="index"
             :background-color="colors[Math.floor(Math.random() * 3)]"
             :card-number="card.number"

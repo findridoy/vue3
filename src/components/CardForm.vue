@@ -38,15 +38,6 @@ export default {
                 logo: this.card.vendor,
             }
 
-            const cardsJson = window.localStorage.getItem('cards')
-            const cards = JSON.parse(cardsJson)
-            if (!cards) {
-                const cardsJson = JSON.stringify([card])
-                window.localStorage.setItem('cards', cardsJson)
-            } else {
-                cards.push(card)
-                window.localStorage.setItem('cards', JSON.stringify(cards))
-            }
 
             this.$emit('change-view')
 

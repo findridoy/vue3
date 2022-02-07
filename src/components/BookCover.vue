@@ -1,12 +1,12 @@
 <script>
 export default {
-
+    props: ['book']
 }
 </script>
 <template>
     <div class="book-cover">
-        <h1>Book Titile</h1>
-        <h6>Author Name</h6>
+        <h1> {{ book.title }} </h1>
+        <h6> {{ book.author_name }} </h6>
     </div>
 </template>
 
